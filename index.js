@@ -8,7 +8,7 @@ const {db_connection} = require("./databases/mongoose")
 const port = process.env.PORT || 9000
 App.use(express.json());
 App.use(cors({
-    origin:"http://localhost:3000",
+    origin:"http://sachindangi.s3-website.eu-north-1.amazonaws.com",
     methods: ['GET', 'POST'],
 }))
 
