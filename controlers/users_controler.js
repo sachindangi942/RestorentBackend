@@ -71,8 +71,8 @@ const forgot_password_controler = async (req, res) => {
     try {
         // const { error } = forgot_password_val({ data: req.body });
         // if (error) return res.send(error.details[0].message);
-        const User = await User_schema.findOne({ Email: req.body.email });
-        if (!User) return res.send("invalide user");
+        const User = await User_schema.findOne({ Email: req.body.Email });
+        if (!User) return res.status(401).send("invalide user");
         const token = create_token({ data: req.body });
         User["resetPasswordToken"] = token;
         User["resetPasswordExpires"] = Date.now() + 10 * 60 * 1000;
@@ -83,7 +83,7 @@ const forgot_password_controler = async (req, res) => {
         res.send({ success: true, msg: "password reset link successfully send for Email" })
 
     } catch (error) {
-        res.send(error.errmsg);
+        res.status(401).send(error.errmsg);
     }
 };
 

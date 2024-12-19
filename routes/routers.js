@@ -43,7 +43,7 @@ Router.post("/changePassword", check_token, change_password_controler);
 
 Router.post("/registration", validate(registrationSchema), registration_control);
 Router.post("/login", validate(loginSchema), login_control);
-Router.post("/forgotPassword", check_token, validate(forgotPasswordSchema), forgot_password_controler);
+Router.post("/forgotPassword",validate(forgotPasswordSchema), forgot_password_controler);
 Router.post("/resetPassword", check_token, validate(restetPasswordSchema), reset_password_controler);
 Router.post("/addProduct", check_token, validate(addProductSchema), add_product_control);
 Router.get("/productList", check_token, fetch_product_controler);

@@ -28,7 +28,7 @@ exports.loginSchema = Joi.object({
 });
 
 exports.forgotPasswordSchema = Joi.object({
-    email: Joi.string().email().required()
+    Email: Joi.string().email().required()
 });
 exports.restetPasswordSchema = Joi.object({
     password: Joi.string().required().min(6)

@@ -39,7 +39,7 @@ const add_product_val = ({ data }) => {
 
 const forgot_password_val = ({ data }) => {
     const validation_schema = joi.object({
-        email: joi.string().email().required()
+        Email: joi.string().email().required()
     });
     return validation_schema.validate(data);
 };

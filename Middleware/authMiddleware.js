@@ -5,7 +5,7 @@ const create_token = ({ data }) => {
 };
 const check_token = (req, res, next) => {
     const token = req.headers["authorization"]?.split(" ")[1];
-    if (!token) res.send({ msg: "access denay" });
+    if (!token) res.status(401).send({ msg: "access denay" });
     else {
         jwt.verify(token, SECRET_KEY, (err) => {
             if (err) {
